@@ -10,11 +10,11 @@ default_args = {
 }
 
 with DAG(
-    dag_id="our_first_dag",
+    dag_id="my_first_dag",
     default_args=default_args,
     description="This is our first DAG by Emilio",
-    schedule_interval="@daily",
     start_date=datetime(2021, 7, 29, 2),
+    schedule_interval="@daily",
     catchup=False,
 ) as dag:
     # Define your tasks here
