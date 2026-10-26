@@ -30,4 +30,9 @@ with DAG(
             bash_command='echo "Hello Airflow! Task 2" && sleep 5',
     )
     
+    task3 = BashOperator(
+            task_id="third_task",
+            bash_command='echo "Hello Airflow! Task 3 at the same time than task2" && sleep 5',
+    )
     task1.set_downstream(task2)
+    task1.set_downstream(task3)
