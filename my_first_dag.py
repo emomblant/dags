@@ -36,3 +36,10 @@ with DAG(
     )
     task1.set_downstream(task2)
     task1.set_downstream(task3)
+    
+    # Otras Formas de definir dependencias
+    # task1 >> task2
+    # task1 >> task3
+    # task1 >> [task2, task3]
+    
+    
