@@ -32,3 +32,5 @@ with DAG(
         task_id='get_name',
         python_callable=get_name
     )   
+    
+    task2 >> task1
