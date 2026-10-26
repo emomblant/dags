@@ -15,7 +15,6 @@ with DAG(
     default_args=default_args,
     description='A simple DAG with PythonOperator',
     schedule_interval='@daily',
-    catchup=False
 ) as dag:
 
     def my_python_function():
