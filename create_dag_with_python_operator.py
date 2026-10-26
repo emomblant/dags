@@ -18,7 +18,7 @@ with DAG(
     default_args=default_args,
     description='A simple DAG with PythonOperator',
     start_date=pendulum.datetime(2021, 7, 29, 2, tz="UTC"),
-    schedule_interval='@daily',
+    schedule='@daily',
     tags=['example', 'python_operator']
 ) as dag:
     task1 = PythonOperator(
