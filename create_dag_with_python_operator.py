@@ -9,8 +9,8 @@ default_args = {
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }   
-def my_python_function():
-        print("Hello from PythonOperator!")
+def my_python_function(name, age):
+        print(f"Hello {name}, you are {age}!")
 
 
 with DAG(
@@ -23,5 +23,6 @@ with DAG(
 ) as dag:
     task1 = PythonOperator(
         task_id='saludo',
-        python_callable=my_python_function
+        python_callable=my_python_function,
+        op_kwargs={'name': 'Emilio Momblant', 'age': 49}
     )   
