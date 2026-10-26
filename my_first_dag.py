@@ -12,9 +12,9 @@ default_args = {
 }
 
 with DAG(
-    dag_id="my_first_dag",
+    dag_id="my_first_dag_v2",
     default_args=default_args,
-    description="This is our first DAG by Emilio",
+    description="This is our first DAG by Emilio v2",
     start_date=pendulum.datetime(2021, 7, 29, 2, tz="UTC"),
     schedule="@daily",
     catchup=False,
@@ -22,5 +22,12 @@ with DAG(
 ) as dag:
     task1 = BashOperator(
         task_id="first_task",
-        bash_command='echo "Hello Airflow! I\'m Emilio" && sleep 5',
+        bash_command='echo "Hello Airflow! Task 1" && sleep 5',
     )
+
+    task2 = BashOperator(
+            task_id="second_task",
+            bash_command='echo "Hello Airflow! Task 2" && sleep 5',
+    )
+    
+    task1.set_downstream(task2)
